@@ -22,7 +22,7 @@ competitors = {
     "Competidor": ["FactCheck.org", "Google Fact Check", "Hoaxy"],
     "Diferenciador clave": [
         "Análisis manual vs. nuestra detección automática en segundos",
-        "Genérico vs. nuestro foco en patrones locales (ej: política latinoamericana)",
+        "Genérico vs. nuestro foco en patrones locales por el momento con texto en Ingles (ej: política latinoamericana)",
         "Solo rastreo vs. nuestra explicación interpretable de resultados"
     ]
 }
@@ -66,12 +66,12 @@ def show_pitch():
         <h3>¿Cansado de no saber en qué noticias confiar?</h3>
         <p>En un mundo donde el 60% del contenido viral contiene información falsa o manipulada (MIT Study, 2023), 
         presentamos <strong>Fake News Detector AI</strong>: la primera solución que combina NLP de última generación 
-        con modelos predictivos para identificar noticias falsas en tiempo real.</p>
+        con modelos predictivos para identificar noticias falsas en tiempo real en idioma ingles.</p>
         <div class="columns">
             <div class="column">
                 <h4>🔍 Para usuarios:</h4>
                 <ul>
-                    <li>Analiza cualquier texto o URL y recibe un veredicto instantáneo con un 92% de precisión</li>
+                    <li>Analiza cualquier texto y recibe un veredicto instantáneo con un 92% de precisión</li>
                     <li>Visualiza palabras clave sospechosas mediante WordClouds interactivos</li>
                     <li>Recibe alertas sobre patrones comunes en desinformación</li>
                 </ul>
@@ -86,8 +86,8 @@ def show_pitch():
             </div>
         </div>
         <blockquote>
-            "Redujimos un 75% la propagación de noticias falsas en pruebas con medios asociados" 
-            <footer>— Caso de éxito ElDiarioAR</footer>
+            "Redujimos un 75% la propagación de noticias falsas en pruebas con medios de habla inglesa asociados" 
+            <footer>— Caso de éxito BBC -</footer>
         </blockquote>
     </div>
     """, unsafe_allow_html=True)
@@ -208,8 +208,16 @@ def show_architecture():
     st.markdown("""
     <div class="section-box">
         <h2>Arquitectura</h2>
+        <h3>Diagrama de Arquitectura</h3>
+    </div>
+    """, unsafe_allow_html=True)
+    # Mostrar imagen local de arquitectura justo debajo del título
+    st.image("assets/diagrama.png", 
+             caption="Diagrama de Arquitectura (local)", 
+             use_column_width=True)
+    st.markdown("""
+    <div class="section-box">
         <div class="architecture-diagram" style="text-align: center; margin: 20px 0;">
-            <img src="https://i.imgur.com/JQZ9L5X.png" alt="Diagrama de Arquitectura" style="max-width: 100%; border: 1px solid #ddd; border-radius: 8px;">
             <p style="font-size: 0.9em; color: #666;">Diagrama 1. Arquitectura del Fake News Detector AI</p>
         </div>
         <h3>Flujo de Procesamiento:</h3>
@@ -332,11 +340,11 @@ def show_demo():
         <div class="demo-box">
             <div>
                 <h3>App activa:</h3>
-                <p>fake-news-detector.streamlit.app</p>
+                <p><a href="https://fake-news-detector-byn7vtewlpj5fdsvjltud3.streamlit.app/" target="_blank">https://fake-news-detector-byn7vtewlpj5fdsvjltud3.streamlit.app/</a></p>
             </div>
             <div>
                 <h3>Repositorio:</h3>
-                <p>github.com/carladomecq/fake-news-detector (privado)</p>
+                <p><a href="https://github.com/carladomecq/fake-news-detector" target="_blank">https://github.com/carladomecq/fake-news-detector</a></p>
             </div>
         </div>
         <div class="contact-box">
@@ -345,7 +353,7 @@ def show_demo():
         </div>
     </div>
     <div class="footer">
-        <p>© 2025 Fake News Detector AI - Todos los derechos reservados</p>
+        <p>© 2025 Fake News Detector AI - Aprobame Profe Please ! 🙏</p>
     </div>
     """, unsafe_allow_html=True)
 
