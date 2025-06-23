@@ -1,0 +1,92 @@
+/* styles.css */
+.header-box {
+    background-color: #f0f2f6;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.pitch-box {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.section-box {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.columns {
+    display: flex;
+    gap: 2rem;
+    margin: 1.5rem 0;
+}
+
+.column {
+    flex: 1;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.tech-card {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #4285f4;
+}
+
+.highlight-box {
+    background-color: #e8f0fe;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+.metric-box {
+    background-color: #e6f4ea;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.contact-box {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+blockquote {
+    border-left: 4px solid #4285f4;
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    color: #555;
+}
+
+blockquote footer {
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 0.5rem;
+}
