@@ -48,7 +48,7 @@ roadmap_data = {
 # --- Sección 1: Pitch ---
 def show_pitch():
     # Imagen de cabecera (similar a la app)
-    st.image("assets/background_top.png", use_column_width=True)
+    st.image("assets/background_top.png",  use_container_width =True)
 
     # Logo y título en fila
     col1, col2 = st.columns([1, 8])
@@ -214,7 +214,7 @@ def show_architecture():
     # Mostrar imagen local de arquitectura justo debajo del título
     st.image("assets/diagrama.png", 
              caption="Diagrama de Arquitectura (local)", 
-             use_column_width=True)
+             use_container_width =True)
     st.markdown("""
     <div class="section-box">
         <div class="architecture-diagram" style="text-align: center; margin: 20px 0;">
@@ -330,7 +330,7 @@ def show_roadmap():
         <p style="margin-bottom: 10px;">Visualización de los principales hitos y fases del desarrollo del producto.</p>
     </div>
     """, unsafe_allow_html=True)
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, use_container_width =True)
 
 # --- Sección 8: Demo y Contacto ---
 def show_demo():
