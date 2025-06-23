@@ -47,21 +47,26 @@ roadmap_data = {
 
 # --- Sección 1: Pitch ---
 def show_pitch():
-    st.markdown("""
-    <div class="header-box">
-        <h1>Fake News Detector AI</h1>
-        <h2>La solución definitiva contra la desinformación</h2>
-    </div>
-    """, unsafe_allow_html=True)
-    
+    # Imagen de cabecera (similar a la app)
+    st.image("assets/background_top.png", use_column_width=True)
+
+    # Logo y título en fila
+    col1, col2 = st.columns([1, 8])
+    with col1:
+        st.image("assets/fake_news_icon.png", width=70)
+    with col2:
+        st.markdown("""
+        <span style="font-size:2.2rem; font-weight:700; color:#e63946; vertical-align:middle;">
+            Fake News Detector AI
+        </span>
+        """, unsafe_allow_html=True)
+
     st.markdown("""
     <div class="pitch-box">
         <h3>¿Cansado de no saber en qué noticias confiar?</h3>
-        
         <p>En un mundo donde el 60% del contenido viral contiene información falsa o manipulada (MIT Study, 2023), 
         presentamos <strong>Fake News Detector AI</strong>: la primera solución que combina NLP de última generación 
         con modelos predictivos para identificar noticias falsas en tiempo real.</p>
-        
         <div class="columns">
             <div class="column">
                 <h4>🔍 Para usuarios:</h4>
@@ -80,7 +85,6 @@ def show_pitch():
                 </ul>
             </div>
         </div>
-        
         <blockquote>
             "Redujimos un 75% la propagación de noticias falsas en pruebas con medios asociados" 
             <footer>— Caso de éxito ElDiarioAR</footer>
@@ -94,7 +98,6 @@ def show_purpose():
     <div class="section-box">
         <h2>Propósito</h2>
         <blockquote>"Empoderar a ciudadanos y organizaciones para tomar decisiones informadas en la era de la desinformación masiva"</blockquote>
-        
         <h3>Tecnología clave:</h3>
         <div class="tech-grid">
             <div class="tech-card">
@@ -136,7 +139,6 @@ def show_value_proposition():
     st.markdown("""
     <div class="section-box">
         <h2>Propuesta de Valor</h2>
-        
         <div class="columns">
             <div class="column">
                 <h3>👥 Para usuarios:</h3>
@@ -155,7 +157,6 @@ def show_value_proposition():
                 </ul>
             </div>
         </div>
-        
         <div class="metric-box">
             <h3>Métrica clave:</h3>
             <p>40% más rápido que soluciones manuales</p>
@@ -202,17 +203,15 @@ def show_target_audience():
         hide_index=True
     )
 
-## --- Sección 6: Arquitectura ---
+# --- Sección 6: Arquitectura ---
 def show_architecture():
     st.markdown("""
     <div class="section-box">
         <h2>Arquitectura</h2>
-        
         <div class="architecture-diagram" style="text-align: center; margin: 20px 0;">
             <img src="https://i.imgur.com/JQZ9L5X.png" alt="Diagrama de Arquitectura" style="max-width: 100%; border: 1px solid #ddd; border-radius: 8px;">
             <p style="font-size: 0.9em; color: #666;">Diagrama 1. Arquitectura del Fake News Detector AI</p>
         </div>
-        
         <h3>Flujo de Procesamiento:</h3>
         <ol>
             <li><strong>Extracción de Datos:</strong> Dataset descargado de <a href="https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news-dataset" target="_blank">Kaggle (Fake and Real News Dataset)</a></li>
@@ -222,7 +221,6 @@ def show_architecture():
             <li><strong>Consumo:</strong> Aplicación Streamlit accede directamente a los modelos en S3</li>
             <li><strong>Interfaz:</strong> Usuario interactúa con la aplicación web implementada en Streamlit</li>
         </ol>
-        
         <div class="tech-grid" style="margin-top: 30px;">
             <div class="tech-card">
                 <h4>🔍 Componentes Clave</h4>
@@ -243,7 +241,6 @@ def show_architecture():
                 </ul>
             </div>
         </div>
-        
         <div class="highlight-box" style="margin-top: 20px;">
             <h4>🔗 URLs Relevantes</h4>
             <table style="width: 100%; border-collapse: collapse;">
@@ -257,29 +254,74 @@ def show_architecture():
                 </tr>
                 <tr>
                     <td style="padding: 8px;"><strong>Repositorio:</strong></td>
-                    <td style="padding: 8px;">github.com/[tu-usuario]/fake-news-detector (privado)</td>
+                    <td style="padding: 8px;">github.com/carladomecq/fake-news-detector (privado)</td>
                 </tr>
             </table>
         </div>
     </div>
     """, unsafe_allow_html=True)
+
 # --- Sección 7: Roadmap ---
+roadmap_data = {
+    "Hito": [
+        "Lanzamiento MVP", "Base de 10k users", 
+        "Integración con WhatsApp", "Alianzas con medios",
+        "Soporte multilingüe", "Modelo de suscripción premium"
+    ],
+    "Inicio": [
+        "2024-07-01", "2024-09-01", 
+        "2024-10-01", "2024-12-01", 
+        "2025-01-01", "2025-07-01"
+    ],
+    "Fin": [
+        "2024-08-01", "2024-10-01", 
+        "2024-11-01", "2025-01-01", 
+        "2025-03-01", "2025-09-01"
+    ],
+    "Tipo": [
+        "Desarrollo", "Crecimiento", 
+        "Desarrollo", "Crecimiento",
+        "Desarrollo", "Monetización"
+    ]
+}
+
+df = pd.DataFrame(roadmap_data)
+df['Inicio'] = pd.to_datetime(df['Inicio'])
+df['Fin'] = pd.to_datetime(df['Fin'])
+
+color_map = {
+    "Desarrollo": "#1f77b4",
+    "Crecimiento": "#17becf",
+    "Monetización": "#d62728"
+}
+
+fig = px.timeline(
+    df,
+    x_start="Inicio",
+    x_end="Fin",
+    y="Hito",
+    color="Tipo",
+    color_discrete_map=color_map,
+    title="Plan de Desarrollo Fake News Detector AI"
+)
+fig.update_yaxes(autorange="reversed")
+fig.update_layout(
+    xaxis_title="Fecha",
+    yaxis_title="Hito",
+    legend_title="Tipo",
+    margin=dict(l=40, r=40, t=60, b=40),
+    height=400
+)
+fig.update_traces(marker=dict(line_color='rgba(0,0,0,0)'))
+
+# --- Sección 7: Roadmap (Función) ---
 def show_roadmap():
     st.markdown("""
     <div class="section-box">
         <h2>Roadmap</h2>
+        <p style="margin-bottom: 10px;">Visualización de los principales hitos y fases del desarrollo del producto.</p>
     </div>
     """, unsafe_allow_html=True)
-    
-    df = pd.DataFrame(roadmap_data)
-    fig = px.timeline(
-        df, 
-        x_start="Fecha", 
-        x_end="Fecha", 
-        y="Hito", 
-        color="Tipo",
-        title="Plan de Desarrollo Fake News Detector AI"
-    )
     st.plotly_chart(fig, use_container_width=True)
 
 # --- Sección 8: Demo y Contacto ---
@@ -287,7 +329,6 @@ def show_demo():
     st.markdown("""
     <div class="section-box">
         <h2>Demo</h2>
-        
         <div class="demo-box">
             <div>
                 <h3>App activa:</h3>
@@ -298,13 +339,11 @@ def show_demo():
                 <p>github.com/carladomecq/fake-news-detector (privado)</p>
             </div>
         </div>
-        
         <div class="contact-box">
             <h3>¿Interesado en invertir o contratarme?</h3>
             <p>Contacto: hola@fakenewsdetector.ai or carladomecq87@gmail.com</p>
         </div>
     </div>
-    
     <div class="footer">
         <p>© 2025 Fake News Detector AI - Todos los derechos reservados</p>
     </div>
